@@ -7,6 +7,12 @@ import {
   HIDE_USER_MODAL,
   SHOW_REG_MODAL,
   HIDE_REG_MODAL,
+  SHOW_REG_PHONE_MODAL,
+  HIDE_REG_PHONE_MODAL,
+  SHOW_REG_WELCOME_MODAL,
+  HIDE_REG_WELCOME_MODAL,
+  SHOW_REG_PHOTO_MODAL,
+  HIDE_REG_PHOTO_MODAL,
   USER_LOGIN_STATE,
   USER_LOGOUT_STATE,
   SET_REG_STATE,
@@ -38,6 +44,35 @@ export function showRegModal() {
 
 export function hideRegModal() {
   return { type: HIDE_REG_MODAL, reg: false }
+}
+
+
+export function showRegWelcomeModal() {
+  return { type: SHOW_REG_WELCOME_MODAL, open: true }
+}
+
+export function hideRegWelcomeModal() {
+  return { type: HIDE_REG_WELCOME_MODAL, open: false }
+}
+
+
+export function showRegPhoneModal() {
+  console.log('showlogin');
+  return { type: SHOW_REG_PHONE_MODAL, open: true }
+}
+
+export function hideRegPhoneModal() {
+  return { type: HIDE_REG_PHONE_MODAL, open: false }
+}
+
+
+export function showRegPhotoModal() {
+  console.log('showlogin');
+  return { type: SHOW_REG_PHOTO_MODAL, open: true }
+}
+
+export function hideRegPhotoModal() {
+  return { type: HIDE_REG_PHOTO_MODAL, open: false }
 }
 
 

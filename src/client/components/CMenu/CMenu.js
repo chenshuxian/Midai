@@ -41,7 +41,7 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function CMenu(props) {
-  const showUserModal = useSelector((state) => state.user.views.userModal)
+  const showUserModal = useSelector((state) => state.views.userModal)
   return (
     <div>
       <StyledMenu

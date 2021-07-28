@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import CMenu from '../CMenu/CMenu';
 import LoginModal from '../Modal/loginModal';
 import RegModal from '../Modal/Regist/RegModal';
+import WelcomeModal from '../Modal/Regist/WelcomeModal';
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -15,6 +16,7 @@ import {
   hideUserModal,
   showRegModal,
   hideRegModal,
+  showRegWelcomeModal,
   userLoginState,
   userLogoutState,
   setRegState
@@ -33,7 +35,8 @@ export default function LoginBtn() {
     if (loginState) {
       // 登入狀態
       setAnchorEl(event.currentTarget);
-      dispatch(showUserModal());
+      // dispatch(showUserModal());
+      dispatch(showRegWelcomeModal());
     } else {
       // 登出狀態
       dispatch(showLoginModal());
@@ -81,6 +84,7 @@ export default function LoginBtn() {
       <CMenu anchorEl={anchorEl} handleClose={handleClose} handleLogout={handleLogout} />
       <LoginModal handleClose={handleClose} handleLogin={handleLogin} />
       <RegModal />
+      <WelcomeModal />
     </div>
   );
 }

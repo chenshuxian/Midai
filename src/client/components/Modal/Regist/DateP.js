@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { Select } from 'mui-rff';
 import Grid from '@material-ui/core/Grid';
 
 import { setUserBirthday } from '../../../redux/Users/Users.actions';
@@ -49,20 +49,19 @@ const SelectCom = (props) => {
     }
     return (
         <div>
-            <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="birthday-month">{props.type}</InputLabel>
-                <Select
-                    labelId="birthday-month"
-                    id="month"
-                    value={props.value}
-                    onChange={props.handleChange}
-                    label={props.type}
-                >
-                    {
-                        Array.isArray(props.arr) ? monthFn(props.arr) : dayYearFn(props.arr, props.value)
-                    }
-                </Select>
-            </FormControl>
+            <Select
+                labelId="birthday-month"
+                id={props.name}
+                name={props.name}
+                value={props.value}
+                onChange={props.handleChange}
+                label={props.type}
+                variant="outlined"
+            >
+                {
+                    Array.isArray(props.arr) ? monthFn(props.arr) : dayYearFn(props.arr, props.value)
+                }
+            </Select>
         </div>
     )
 }
@@ -70,7 +69,7 @@ const SelectCom = (props) => {
 const DateP = () => {
 
     const dispatch = useDispatch();
-    let birthday = useSelector((state) => state.user.users.birthday);
+    let birthday = useSelector((state) => state.users.birthday);
     birthday = birthday.split("-");
     const month = [
         { key: 1, value: '一月' },
@@ -117,13 +116,13 @@ const DateP = () => {
     return (
         <Grid container spacing={2}>
             <Grid item xs>
-                <SelectCom arr={month} type="月" value={birthday[1]} handleChange={handleMonthChange} />
+                <SelectCom arr={month} type="月" name="month" value={birthday[1]} handleChange={handleMonthChange} />
             </Grid>
             <Grid item xs>
-                <SelectCom arr={31} type="日" value={birthday[2]} handleChange={handleDayChange} />
+                <SelectCom arr={31} type="日" name="day" value={birthday[2]} handleChange={handleDayChange} />
             </Grid>
             <Grid item xs>
-                <SelectCom arr={100} type="年" value={birthday[0]} handleChange={handleYearChange} />
+                <SelectCom arr={100} type="年" name="year" value={birthday[0]} handleChange={handleYearChange} />
             </Grid>
         </Grid>
 

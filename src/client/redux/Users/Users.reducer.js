@@ -8,8 +8,14 @@ import {
   HIDE_USER_MODAL,
   SHOW_REG_MODAL,
   HIDE_REG_MODAL,
+  SHOW_REG_PHONE_MODAL,
+  HIDE_REG_PHONE_MODAL,
+  SHOW_REG_WELCOME_MODAL,
+  HIDE_REG_WELCOME_MODAL,
+  SHOW_REG_PHOTO_MODAL,
+  HIDE_REG_PHOTO_MODAL,
   SET_REG_STATE,
-  SET_USER_BIRTHDAY
+  SET_USER_BIRTHDAY,
 } from "../actionTypes";
 
 const initState = {
@@ -19,7 +25,10 @@ const initState = {
   views: {
     loginModal: false,
     userModal: false,
-    regModal: false
+    regModal: false,
+    regWelcomeModal: false,
+    regPhoneModal: false,
+    regPhotoModal: false
   },
   userLoginState: false,
   userRegState: false
@@ -73,6 +82,48 @@ const reducer = (state = initState, action) => {
         ...state,
         views: {
           ...state.views, regModal: action.reg
+        }
+      };
+    case SHOW_REG_WELCOME_MODAL:
+      return {
+        ...state,
+        views: {
+          ...state.views, regWelcomeModal: action.open
+        }
+      };
+    case HIDE_REG_WELCOME_MODAL:
+      return {
+        ...state,
+        views: {
+          ...state.views, regWelcomeModal: action.open
+        }
+      };
+    case SHOW_REG_PHONE_MODAL:
+      return {
+        ...state,
+        views: {
+          ...state.views, regPhoneModal: action.open
+        }
+      };
+    case HIDE_REG_PHONE_MODAL:
+      return {
+        ...state,
+        views: {
+          ...state.views, regPhoneModal: action.open
+        }
+      };
+    case SHOW_REG_PHOTO_MODAL:
+      return {
+        ...state,
+        views: {
+          ...state.views, regPhotoModal: action.open
+        }
+      };
+    case HIDE_REG_PHOTO_MODAL:
+      return {
+        ...state,
+        views: {
+          ...state.views, regPhotoModal: action.open
         }
       };
     case USER_LOGIN_STATE:
