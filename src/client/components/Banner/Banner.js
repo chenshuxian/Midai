@@ -5,8 +5,9 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { Grid } from "@material-ui/core";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 import LoginBtn from '../LoginBtn/LoginBtn';
+import { showRegPhoneModal } from '../../redux/Users/Users.actions';
 
 
 
@@ -21,6 +22,8 @@ const Banner = () => {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+
+  const dispatch = useDispatch();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -42,7 +45,7 @@ const Banner = () => {
           textColor="primary"
           variant="fullWidth"
         >
-          <Tab label="Item One" />
+          <Tab label="Item One" onClick={() => dispatch(showRegPhoneModal())} />
           <Tab label="Item Two" />
           <Tab label="Item Three" />
         </Tabs>

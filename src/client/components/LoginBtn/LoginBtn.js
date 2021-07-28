@@ -7,6 +7,8 @@ import CMenu from '../CMenu/CMenu';
 import LoginModal from '../Modal/loginModal';
 import RegModal from '../Modal/Regist/RegModal';
 import WelcomeModal from '../Modal/Regist/WelcomeModal';
+import PhoneModal from '../Modal/Regist/PhoneModal';
+import PhotoModal from '../Modal/Regist/PhotoModal';
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -85,6 +87,8 @@ export default function LoginBtn() {
       <LoginModal handleClose={handleClose} handleLogin={handleLogin} />
       <RegModal />
       <WelcomeModal />
+      <PhoneModal />
+      <PhotoModal />
     </div>
   );
 }

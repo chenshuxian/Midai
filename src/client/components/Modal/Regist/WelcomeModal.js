@@ -25,7 +25,7 @@ const WelcomeModal = () => {
             </DialogTitle>
             <DialogContent dividers>
                 <Typography align="center" variant='h5'>歡迎使用 Midai</Typography>
-                <Typography align="center" variant='h6'>探索在地，掌握資訊，享受生活，盡在 Midai</Typography>
+                <Typography align="center" variant='h6'>探索在地，掌握資訊，享受生活，盡在 Midai。</Typography>
                 <Button style={{ marginTop: '8' }} fullWidth variant="contained" color="secondary" onClick={next}>
                     繼續
                 </Button>
