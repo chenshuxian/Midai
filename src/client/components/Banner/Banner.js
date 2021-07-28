@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     margin: 0,
-    position: "absolute",
+    position: "fixed",
     width: "100%",
     zIndex: 999
   },
@@ -88,6 +88,7 @@ const Banner = () => {
         {
           items.map((item, index) => {
             return <CardMedia
+              key={index}
               className={classes.card}
               component="img"
               alt="Contemplative Reptile"
