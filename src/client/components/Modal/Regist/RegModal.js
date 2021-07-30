@@ -13,10 +13,6 @@ const RegModal = () => {
     const handleClose = () => {
         dispatch(hideRegModal());
     }
-    const degree = () => {
-        dispatch(setRegState());
-        handleClose();
-    }
 
     return (
         <Dialog aria-labelledby="customized-dialog-title" open={showRegModal} TransitionComponent={Transition}>

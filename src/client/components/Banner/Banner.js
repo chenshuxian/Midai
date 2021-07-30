@@ -8,7 +8,6 @@ import { Grid, CardMedia } from "@material-ui/core";
 import Carousel from 'react-material-ui-carousel';
 
 import LoginBtn from '../LoginBtn/LoginBtn';
-import { showRegPhoneModal } from '../../redux/Users/Users.actions';
 
 
 const useStyles = makeStyles({
@@ -17,7 +16,8 @@ const useStyles = makeStyles({
     margin: 0,
     position: "fixed",
     width: "100%",
-    zIndex: 999
+    zIndex: 999,
+    borderRadius: 0
   },
   card: {
     height: "100%",
@@ -64,7 +64,7 @@ const Banner = () => {
           <Tabs value={false}>
             <Tab label="MiDai" />
           </Tabs>
-          <Tabs
+          {/* <Tabs
             value={value}
             onChange={handleChange}
             indicatorColor="primary"
@@ -74,7 +74,7 @@ const Banner = () => {
             <Tab label="Item One" onClick={() => dispatch(showRegPhoneModal())} />
             <Tab label="Item Two" />
             <Tab label="Item Three" />
-          </Tabs>
+          </Tabs> */}
           <LoginBtn />
         </Grid>
       </Paper>

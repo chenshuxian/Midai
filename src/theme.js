@@ -17,6 +17,14 @@ const theme = createTheme({
             default: '#fff',
         },
     },
+    overrides: {
+        MuiPaper: {
+            rounded: {
+                borderRadius: 16
+            },
+        }
+    }
+
 });
 
 export default theme;

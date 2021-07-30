@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Card } from "@material-ui/core";
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -19,16 +18,15 @@ const useStyles = makeStyles({
         fontWeight: 900,
     },
     card: {
-        borderRadius: 16,
         marginBottom: 8,
-        boxShadow: "8px 6px 10px grey"
+        boxShadow: "8px 6px 10px grey",
+        minWidth: 400
     }
 });
 
 const CardList = (props) => {
 
     const classes = useStyles();
-    const dispatch = useDispatch();
 
     return (
         <Grid container className={classes.root}>
@@ -39,24 +37,26 @@ const CardList = (props) => {
                 {
                     props.items.map((item, index) => {
                         return (
-                            <Grid key={index} item xs >
+                            <Grid key={index} item xs={12} md={4}>
                                 <Card className={classes.card}>
                                     <CardActionArea >
                                         <CardMedia
                                             component="img"
-                                            height="300"
+                                            height={item.NoContent ? "500" : "300"}
                                             alt="Contemplative Reptile"
                                             src={item.Image}
                                             title={item.Items ? item.Item.Name : null}
                                         />
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h6" component="h2">
-                                                {item.Type}
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                {item.Descrption}
-                                            </Typography>
-                                        </CardContent>
+                                        {item.NoContent ? null : (
+                                            <CardContent>
+                                                <Typography gutterBottom variant="h6" component="h2">
+                                                    {item.Title}
+                                                </Typography>
+                                                <Typography variant="body2" color="textSecondary" component="p">
+                                                    {item.Descrption}
+                                                </Typography>
+                                            </CardContent>
+                                        )}
                                     </CardActionArea>
                                 </Card>
                             </Grid>
