@@ -4,6 +4,9 @@ import render from "./renderHelper";
 import Routes from "./client/Routes";
 import store from "./client/redux";
 
+const handleRender = (req, res) => {
+
+}
 
 const app = express();
 
