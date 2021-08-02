@@ -9,14 +9,14 @@ import Carousel from 'react-material-ui-carousel';
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
-        marginTop: 40,
-        marginBottom: 40,
+        marginTop: 20,
+        marginBottom: 20,
         overflow: "auto",
         flexWrap: "nowrap"
 
     },
     Typo: {
-        marginBottom: 20,
+        marginBottom: 10,
         fontWeight: 900,
     },
     card: {
