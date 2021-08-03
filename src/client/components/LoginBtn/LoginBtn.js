@@ -13,11 +13,9 @@ import {
   showUserModal,
   hideUserModal,
   showRegModal,
-  hideRegModal,
   showRegWelcomeModal,
   userLoginState,
   userLogoutState,
-  setRegState
 } from "../../redux/Users/Users.actions";
 
 

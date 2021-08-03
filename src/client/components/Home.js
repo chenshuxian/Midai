@@ -1,8 +1,6 @@
 import React from "react";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Header from './Header';
 import Banner from './Banner';
 import CardList from "./CardList";

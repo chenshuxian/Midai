@@ -1,12 +1,13 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import Grid from '@material-ui/core/Grid';
-import FacebookIcon from '@material-ui/icons/Facebook';
+/* eslint-disable react/prop-types */
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import Grid from "@material-ui/core/Grid";
+import FacebookIcon from "@material-ui/icons/Facebook";
 
-import { useSelector, useDispatch } from "react-redux";
-import { DialogContent, DialogTitle, Transition } from './ModalCommon';
+import { useSelector } from "react-redux";
+import { DialogContent, DialogTitle, Transition } from "./ModalCommon";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -18,7 +19,11 @@ const LoginModal = (props) => {
   const classes = useStyles();
   const showLoginModal = useSelector((state) => state.views.loginModal);
   return (
-    <Dialog aria-labelledby="customized-dialog-title" open={showLoginModal} TransitionComponent={Transition}>
+    <Dialog
+      aria-labelledby="customized-dialog-title"
+      open={showLoginModal}
+      TransitionComponent={Transition}
+    >
       <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
         登入或註冊
       </DialogTitle>
@@ -62,7 +67,8 @@ const LoginModal = (props) => {
           </Grid>
         </Grid>
       </DialogContent>
-    </Dialog>)
-}
+    </Dialog>
+  );
+};
 
 export default LoginModal;
