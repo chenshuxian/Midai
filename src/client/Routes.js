@@ -1,7 +1,6 @@
 import Home from "./components/Home";
 import Activity from "./components/Activity";
 
-
 const Routes = [
   {
     exact: true,

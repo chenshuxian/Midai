@@ -1,10 +1,10 @@
-import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Avatar from '@material-ui/core/Avatar';
+import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import Avatar from "@material-ui/core/Avatar";
 
-import CMenu from '../CMenu/CMenu';
-import LoginModal from '../Modal/loginModal';
+import CMenu from "../CMenu/CMenu";
+import LoginModal from "../Modal/loginModal";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -18,14 +18,11 @@ import {
   userLogoutState,
 } from "../../redux/Users/Users.actions";
 
-
 export default function LoginBtn() {
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const dispatch = useDispatch();
   const loginState = useSelector((state) => state.userLoginState);
   const regState = useSelector((state) => state.userRegState);
-
 
   const handleClickOpen = (event) => {
     if (loginState) {
@@ -37,10 +34,8 @@ export default function LoginBtn() {
       // 登出狀態
       dispatch(showLoginModal());
     }
-
   };
   const handleClose = () => {
-
     if (loginState) {
       // 登入狀態
       setAnchorEl(null);
@@ -52,7 +47,6 @@ export default function LoginBtn() {
   };
 
   const handleLogin = () => {
-
     //if (regState)
     dispatch(userLoginState());
     dispatch(hideLoginModal());
@@ -61,7 +55,6 @@ export default function LoginBtn() {
       dispatch(showRegModal());
       // dispatch(setRegState());
     }
-
   };
 
   const handleLogout = () => {
@@ -72,12 +65,22 @@ export default function LoginBtn() {
 
   return (
     <div>
-      <IconButton color="primary" aria-label="upload picture" onClick={handleClickOpen} >
-        {
-          loginState ? <Avatar>J</Avatar> : <AccountCircleIcon fontSize="large" />
-        }
+      <IconButton
+        color="primary"
+        aria-label="upload picture"
+        onClick={handleClickOpen}
+      >
+        {loginState ? (
+          <Avatar>J</Avatar>
+        ) : (
+          <AccountCircleIcon fontSize="large" />
+        )}
       </IconButton>
-      <CMenu anchorEl={anchorEl} handleClose={handleClose} handleLogout={handleLogout} />
+      <CMenu
+        anchorEl={anchorEl}
+        handleClose={handleClose}
+        handleLogout={handleLogout}
+      />
       <LoginModal handleClose={handleClose} handleLogin={handleLogin} />
     </div>
   );
