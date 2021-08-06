@@ -25,14 +25,17 @@ const items = [
   {
     Name: "Macbook Pro",
     Image: "https://source.unsplash.com/featured/?macbook",
+    Url: "http://www.google.com",
   },
   {
     Name: "iPhone",
     Image: "https://source.unsplash.com/featured/?iphone",
+    Url: "activity",
   },
   {
     Name: "Washing Machine WX9102",
     Image: "https://source.unsplash.com/featured/?washingmachine",
+    Url: "",
   },
 ];
 
@@ -53,16 +56,32 @@ const Banner = () => {
         navButtonsAlwaysVisible
         timeout={1000}
       >
-        {items.map((item, index) => (
-          <CardMedia
-            key={index}
-            className={classes.card}
-            component="img"
-            alt="Contemplative Reptile"
-            src={item.Image}
-            title="item.Items.Name"
-          />
-        ))}
+        {items.map((item, index) => {
+          if (item.Url !== "") {
+            return (
+              <a key={index} target="_blank" href={item.Url} rel="noreferrer">
+                <CardMedia
+                  className={classes.card}
+                  component="img"
+                  alt="Contemplative Reptile"
+                  src={item.Image}
+                  title={item.Image}
+                />
+              </a>
+            );
+          } else {
+            return (
+              <CardMedia
+                key={index}
+                className={classes.card}
+                component="img"
+                alt="Contemplative Reptile"
+                src={item.Image}
+                title={item.Image}
+              />
+            );
+          }
+        })}
       </Carousel>
     </Grid>
   );

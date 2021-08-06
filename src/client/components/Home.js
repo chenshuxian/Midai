@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -11,9 +12,8 @@ import PhotoModal from "./Modal/Regist/PhotoModal";
 import Footer from "./Footer";
 import BigPicture from "./BigPicture";
 
-import { consumer, activity, wish } from "./data";
+import { wish, homeSection } from "./data";
 import { contentLayout } from "./layoutCss";
-
 const Home = () => {
   const useStyles = contentLayout();
 
@@ -23,8 +23,16 @@ const Home = () => {
       <Header />
       <Banner />
       <Box className={classes.root}>
-        <CardList items={activity.data} title={activity.title} />
-        <CardList items={consumer.data} title={consumer.title} />
+        {homeSection.map((item, index) => {
+          return (
+            <CardList
+              id={item.id}
+              key={index}
+              items={item.data}
+              title={item.title}
+            />
+          );
+        })}
         <BigPicture items={wish.data} title={wish.title} />
       </Box>
       <Footer />

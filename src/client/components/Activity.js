@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "./Header";
+import Footer from "./Footer";
 import CardList from "./CardList";
 import { Grid, Chip, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import { activity, newactivityList, activityType } from "./data";
 import { contentLayout } from "./layoutCss";
 import { getActivityList } from "../redux/Activitys/Activitys.actions";
+import { setPagePosition } from "../redux/Commons/Commons.actions";
+import { useLocation } from "react-router-dom";
 
 const ChipRe = (props) => {
   const [bgColor, setbgColor] = useState("outlined");
@@ -38,10 +41,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Activity() {
+  const ACTIVITY_DETAIL = "activityDetail";
   const classes = contentLayout()();
   const chipCss = useStyles();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.activity.activityList);
+  const location = useLocation();
+
+  const handleClick = () => {
+    dispatch(setPagePosition(ACTIVITY_DETAIL));
+  };
+
+  useEffect(() => {
+    dispatch(setPagePosition(location.pathname));
+  }, []);
 
   return (
     <Grid container>
@@ -67,6 +80,7 @@ export default function Activity() {
           title={items.title}
           md={2}
           id="activityAll"
+          onClick={handleClick}
         />
         <Grid container justifyContent="center">
           <Button
@@ -81,6 +95,7 @@ export default function Activity() {
           </Button>
         </Grid>
       </Grid>
+      <Footer />
     </Grid>
   );
 }

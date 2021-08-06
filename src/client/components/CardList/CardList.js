@@ -50,7 +50,7 @@ const CardList = (props) => {
   const md = props.md ? props.md : 4;
 
   return (
-    <Box>
+    <Box id={props.id}>
       {props.title ? (
         <Typography variant="h4" className={classes.Typo}>
           {props.title}
@@ -58,7 +58,7 @@ const CardList = (props) => {
       ) : null}
 
       <Grid container className={classes.root} spacing={2} id={props.id}>
-        <ReCard items={props.items} md={md} />
+        <ReCard items={props.items} md={md} onClick={props.onClick} />
       </Grid>
     </Box>
   );

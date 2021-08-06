@@ -12,7 +12,7 @@ export const ReCard = (props) => {
     return (
       <Grid key={index} item md={props.md}>
         <Card className={linkCss.card}>
-          <Link to="activity" className={linkCss.link}>
+          <Link to="activity" className={linkCss.link} onClick={props.onClick}>
             <CardActionArea>
               <CardMedia
                 component="img"
