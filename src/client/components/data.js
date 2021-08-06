@@ -105,6 +105,71 @@ export const activityList = {
   ],
 };
 
+export const newactivityList = {
+  data: [
+    {
+      Title: "休閒活動1",
+      Descrption: "親子、手作、文化、自然",
+      Image: "https://source.unsplash.com/featured/?family",
+    },
+    {
+      Title: "教育學習1",
+      Descrption: "技能、才藝學習",
+      Image: "https://source.unsplash.com/featured/?education",
+    },
+    {
+      Title: "政府資訊1",
+      Descrption: "補助申請、政令宣導",
+      Image: "https://source.unsplash.com/featured/?policy",
+    },
+    {
+      Title: "休閒活動1",
+      Descrption: "親子、手作、文化、自然",
+      Image: "https://source.unsplash.com/featured/?family",
+    },
+    {
+      Title: "教育學習1",
+      Descrption: "技能、才藝學習",
+      Image: "https://source.unsplash.com/featured/?education",
+    },
+    {
+      Title: "政府資訊1",
+      Descrption: "補助申請、政令宣導",
+      Image: "https://source.unsplash.com/featured/?policy",
+    },
+    {
+      Title: "休閒活動1",
+      Descrption: "親子、手作、文化、自然",
+      Image: "https://source.unsplash.com/featured/?family",
+    },
+    {
+      Title: "教育學習1",
+      Descrption: "技能、才藝學習",
+      Image: "https://source.unsplash.com/featured/?education",
+    },
+    {
+      Title: "政府資訊1",
+      Descrption: "補助申請、政令宣導",
+      Image: "https://source.unsplash.com/featured/?policy",
+    },
+    {
+      Title: "休閒活動1",
+      Descrption: "親子、手作、文化、自然",
+      Image: "https://source.unsplash.com/featured/?family",
+    },
+    {
+      Title: "教育學習1",
+      Descrption: "技能、才藝學習",
+      Image: "https://source.unsplash.com/featured/?education",
+    },
+    {
+      Title: "政府資訊1",
+      Descrption: "補助申請、政令宣導",
+      Image: "https://source.unsplash.com/featured/?policy",
+    },
+  ],
+};
+
 export const wish = {
   title: "",
   data: [

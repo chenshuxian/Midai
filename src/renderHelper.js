@@ -1,5 +1,5 @@
 import React from "react";
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from "@material-ui/core/CssBaseline";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -17,7 +17,9 @@ const render = (req, store) => {
         <React.Fragment>
           <CssBaseline />
           <Provider store={store}>
-            <StaticRouter location={req.path}>{renderRoutes(Routes)}</StaticRouter>
+            <StaticRouter location={req.path}>
+              {renderRoutes(Routes)}
+            </StaticRouter>
           </Provider>
         </React.Fragment>
       </ThemeProvider>

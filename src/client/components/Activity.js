@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Header from "./Header";
 import CardList from "./CardList";
-import { Grid, Chip } from "@material-ui/core";
+import { Grid, Chip, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-
-import { activity, activityList, activityType } from "./data";
+import { activity, newactivityList, activityType } from "./data";
 import { contentLayout } from "./layoutCss";
+import { getActivityList } from "../redux/Activitys/Activitys.actions";
 
 const ChipRe = (props) => {
   const [bgColor, setbgColor] = useState("outlined");
@@ -36,16 +37,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Activity = () => {
+export default function Activity() {
   const classes = contentLayout()();
   const chipCss = useStyles();
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.activity.activityList);
 
   return (
     <Grid container>
       <Header />
       <Grid item xs className={classes.root}>
         <div style={{ marginTop: 40 }}></div>
+        {/* 近期活動區 */}
         <CardList items={activity.data} title={activity.title} />
+        {/* 類別過濾區 */}
         <Grid item className={chipCss.root}>
           <Chip variant="outlined" size="medium" label="地區" />
           <Chip variant="outlined" size="medium" label="日期選擇" />
@@ -56,13 +61,26 @@ const Activity = () => {
             return <ChipRe key={item.id} label={item.name} />;
           })}
         </Grid>
-        <CardList items={activityList.data} title={activityList.title} md={2} />
+        {/* 全部活動區 */}
+        <CardList
+          items={items.data}
+          title={items.title}
+          md={2}
+          id="activityAll"
+        />
+        <Grid container justifyContent="center">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={() => {
+              dispatch(getActivityList(newactivityList));
+            }}
+          >
+            載入更多活動
+          </Button>
+        </Grid>
       </Grid>
-      {/* <Grid item xs>
-            <CardList items={activity.data} title={activity.title}/>
-            </Grid> */}
     </Grid>
   );
-};
-
-export default Activity;
+}

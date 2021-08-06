@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginModal = (props) => {
   const classes = useStyles();
-  const showLoginModal = useSelector((state) => state.views.loginModal);
+  const showLoginModal = useSelector((state) => state.user.views.loginModal);
   return (
     <Dialog
       aria-labelledby="customized-dialog-title"

@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import { FETCH_USERS } from "./users.actions";
 import {
   USER_LOGIN_STATE,
@@ -20,7 +21,7 @@ import {
 
 const initState = {
   users: {
-    birthday: '2021-2-17'
+    birthday: "2021-2-17",
   },
   views: {
     loginModal: false,
@@ -28,14 +29,13 @@ const initState = {
     regModal: false,
     regWelcomeModal: false,
     regPhoneModal: false,
-    regPhotoModal: false
+    regPhotoModal: false,
   },
   userLoginState: false,
-  userRegState: false
+  userRegState: false,
 };
 
 const reducer = (state = initState, action) => {
-
   switch (action.type) {
     case FETCH_USERS:
       return {
@@ -46,108 +46,121 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         views: {
-          ...state.views, loginModal: action.login
-        }
+          ...state.views,
+          loginModal: action.login,
+        },
       };
     case HIDE_LOGIN_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, loginModal: action.login
-        }
+          ...state.views,
+          loginModal: action.login,
+        },
       };
     case SHOW_USER_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, userModal: action.user
-        }
+          ...state.views,
+          userModal: action.user,
+        },
       };
     case HIDE_USER_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, userModal: action.user
-        }
+          ...state.views,
+          userModal: action.user,
+        },
       };
     case SHOW_REG_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regModal: action.reg
-        }
+          ...state.views,
+          regModal: action.reg,
+        },
       };
     case HIDE_REG_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regModal: action.reg
-        }
+          ...state.views,
+          regModal: action.reg,
+        },
       };
     case SHOW_REG_WELCOME_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regWelcomeModal: action.open
-        }
+          ...state.views,
+          regWelcomeModal: action.open,
+        },
       };
     case HIDE_REG_WELCOME_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regWelcomeModal: action.open
-        }
+          ...state.views,
+          regWelcomeModal: action.open,
+        },
       };
     case SHOW_REG_PHONE_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regPhoneModal: action.open
-        }
+          ...state.views,
+          regPhoneModal: action.open,
+        },
       };
     case HIDE_REG_PHONE_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regPhoneModal: action.open
-        }
+          ...state.views,
+          regPhoneModal: action.open,
+        },
       };
     case SHOW_REG_PHOTO_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regPhotoModal: action.open
-        }
+          ...state.views,
+          regPhotoModal: action.open,
+        },
       };
     case HIDE_REG_PHOTO_MODAL:
       return {
         ...state,
         views: {
-          ...state.views, regPhotoModal: action.open
-        }
+          ...state.views,
+          regPhotoModal: action.open,
+        },
       };
     case USER_LOGIN_STATE:
       return {
         ...state,
-        userLoginState: action.login
+        userLoginState: action.login,
       };
     case USER_LOGOUT_STATE:
       return {
         ...state,
-        userLoginState: action.login
+        userLoginState: action.login,
       };
     case SET_REG_STATE:
       return {
         ...state,
-        userRegState: action.already
+        userRegState: action.already,
       };
     case SET_USER_BIRTHDAY:
       let key = action.payload.key;
       return {
         ...state,
         users: {
-          ...state.users, [key]: action.payload.value
-        }
+          ...state.users,
+          [key]: action.payload.value,
+        },
       };
     default:
       return state;

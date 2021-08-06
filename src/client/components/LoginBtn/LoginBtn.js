@@ -21,8 +21,8 @@ import {
 export default function LoginBtn() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const dispatch = useDispatch();
-  const loginState = useSelector((state) => state.userLoginState);
-  const regState = useSelector((state) => state.userRegState);
+  const loginState = useSelector((state) => state.user.userLoginState);
+  const regState = useSelector((state) => state.user.userRegState);
 
   const handleClickOpen = (event) => {
     if (loginState) {

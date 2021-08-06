@@ -21,6 +21,12 @@ export const contentLayout = () => {
         textDecoration: "none",
       },
     },
+    card: {
+      marginBottom: 8,
+      boxShadow: "8px 6px 10px grey",
+      minWidth: "0%",
+      minHeight: "0%",
+    },
   });
 
   return useStyles;

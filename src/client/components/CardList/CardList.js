@@ -1,12 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Typography, Card, Box } from "@material-ui/core";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import { Link } from "react-router-dom";
-import { contentLayout } from "../layoutCss";
+import { Grid, Typography, Box } from "@material-ui/core";
+import { ReCard } from "./ReCard";
 
 const useStyles = makeStyles({
   root: {
@@ -50,7 +46,7 @@ const useStyles = makeStyles({
 
 const CardList = (props) => {
   const classes = useStyles();
-  const linkCss = contentLayout()();
+  //const linkCss = contentLayout()();
   const md = props.md ? props.md : 4;
 
   return (
@@ -61,38 +57,8 @@ const CardList = (props) => {
         </Typography>
       ) : null}
 
-      <Grid container className={classes.root} spacing={2}>
-        {props.items.map((item, index) => {
-          return (
-            <Grid key={index} item md={md}>
-              <Card className={classes.card}>
-                <Link to="activity" className={linkCss.link}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="250"
-                      alt="Contemplative Reptile"
-                      src={item.Image}
-                      title={item.Items ? item.Item.Name : null}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h6" component="h2">
-                        {item.Title}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                      >
-                        {item.Descrption}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Link>
-              </Card>
-            </Grid>
-          );
-        })}
+      <Grid container className={classes.root} spacing={2} id={props.id}>
+        <ReCard items={props.items} md={md} />
       </Grid>
     </Box>
   );
