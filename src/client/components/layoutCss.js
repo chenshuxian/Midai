@@ -9,7 +9,7 @@ export const contentLayout = () => {
   const useStyles = makeStyles({
     root: {
       flexGrow: 1,
-      marginTop: 40,
+      marginTop: 80,
       marginBottom: 40,
       paddingLeft: padding,
       paddingRight: padding,
