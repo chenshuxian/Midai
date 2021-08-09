@@ -5,7 +5,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import CardList from "./CardList";
 import { Grid, Chip, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
 import { activity, newactivityList, activityType } from "./data";
 import { contentLayout } from "./layoutCss";
 import { getActivityList } from "../redux/Activitys/Activitys.actions";
@@ -30,20 +29,9 @@ const ChipRe = (props) => {
   );
 };
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(0.5),
-    },
-    borderBottom: "1px solid rgba(0, 0, 0, 0.1) !important",
-    paddingBottom: 10,
-  },
-}));
-
 export default function Activity() {
   const ACTIVITY_DETAIL = "activityDetail";
   const classes = contentLayout()();
-  const chipCss = useStyles();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.activity.activityList);
   const location = useLocation();
@@ -64,7 +52,7 @@ export default function Activity() {
         {/* 近期活動區 */}
         <CardList items={activity.data} title={activity.title} />
         {/* 類別過濾區 */}
-        <Grid item className={chipCss.root}>
+        <Grid item>
           <Chip variant="outlined" size="medium" label="地區" />
           <Chip variant="outlined" size="medium" label="日期選擇" />
           <span
@@ -74,6 +62,7 @@ export default function Activity() {
             return <ChipRe key={item.id} label={item.name} />;
           })}
         </Grid>
+        <div className={classes.bottomLine}></div>
         {/* 全部活動區 */}
         <CardList
           items={items.data}

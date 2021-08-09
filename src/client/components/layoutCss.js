@@ -13,6 +13,10 @@ export const contentLayout = () => {
       marginBottom: 40,
       paddingLeft: padding,
       paddingRight: padding,
+      "& p": {
+        paddingLeft: 8,
+        paddingRight: 8,
+      },
     },
     link: {
       textDecoration: "none",
@@ -26,6 +30,21 @@ export const contentLayout = () => {
       boxShadow: "8px 6px 10px grey",
       minWidth: "0%",
       minHeight: "0%",
+    },
+    bottomLine: {
+      "& > *": {
+        margin: theme.spacing(0.5),
+      },
+      borderBottom: "1px solid rgba(0, 0, 0, 0.1) !important",
+      paddingBottom: 10,
+      margin: "10 -80 10 -80",
+    },
+    basicLine: {
+      "& > *": {
+        margin: theme.spacing(0.5),
+      },
+      borderBottom: "1px solid rgba(0, 0, 0, 0.1) !important",
+      paddingBottom: 10,
     },
   });
 
