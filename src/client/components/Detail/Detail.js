@@ -15,6 +15,8 @@ import LanguageIcon from "@material-ui/icons/Language";
 import PhoneIcon from "@material-ui/icons/Phone";
 import ShareIcon from "@material-ui/icons/Share";
 import { setPagePosition } from "../../redux/Commons/Commons.actions";
+import CardList from "../CardList";
+import { activityList } from "../data";
 
 const useStyles = makeStyles({
   cardFirst: {
@@ -52,7 +54,7 @@ const data = [
   },
 ];
 
-const Detail = (props) => {
+const Detail = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setPagePosition(location.pathname));
@@ -63,10 +65,10 @@ const Detail = (props) => {
   const imgHeight = 516;
   return (
     <Grid container direction="column">
-      <Grid item xs>
+      <Grid item xs={12}>
         <Header />
       </Grid>
-      <Grid item xs>
+      <Grid item xs={12}>
         <Grid container direction="column" spacing={2} className={classes.root}>
           <Grid item>
             <Typography variant="h4">活動主題</Typography>
@@ -91,9 +93,9 @@ const Detail = (props) => {
             </Grid>
           </Grid>
           {/* 圖片呈現 */}
-          <Grid item xs>
+          <Grid item xs={12}>
             <Grid container spacing={2}>
-              <Grid item xs={4}>
+              <Grid item xs={12} md={4}>
                 <CardMedia
                   component="img"
                   height={imgHeight}
@@ -101,23 +103,23 @@ const Detail = (props) => {
                   classes={{ root: card.cardFirst }}
                 ></CardMedia>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={12} md={3}>
                 <CardMedia
                   component="img"
                   height={imgHeight}
                   src="https://source.unsplash.com/featured/?fruit"
                 ></CardMedia>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} md={2}>
                 <Grid container direction="column" spacing={2}>
-                  <Grid item xs>
+                  <Grid item xs={12}>
                     <CardMedia
                       component="img"
                       height="250"
                       src="https://source.unsplash.com/featured/?boy"
                     ></CardMedia>
                   </Grid>
-                  <Grid item xs>
+                  <Grid item xs={12}>
                     <CardMedia
                       component="img"
                       height="250"
@@ -126,7 +128,7 @@ const Detail = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={12} md={3}>
                 <CardMedia
                   component="img"
                   height={imgHeight}
@@ -168,7 +170,7 @@ const Detail = (props) => {
               </Grid>
               <Grid item>
                 <Typography>
-                  "Coaching a phenom" is a discussion with John Henwood, New
+                  Coaching a phenom is a discussion with John Henwood, New
                   Zealand Olympian and coach, and Mary Cain, long-distance
                   running champion. Learn how to be a leader through this
                   conversation that shows how coaching leadership transfers to
@@ -188,16 +190,13 @@ const Detail = (props) => {
                 <Typography variant="h4">更多活動</Typography>
               </Grid>
               <Grid item>
-                <Typography>
-                  "Coaching a phenom" is a discussion with John Henwood, New
-                  Zealand Olympian and coach, and Mary Cain, long-distance
-                  running champion. Learn how to be a leader through this
-                  conversation that shows how coaching leadership transfers to
-                  business leadership. In other words, you have to look at the
-                  whole athlete (or employee) to maximize performance. This
-                  experience shows the transferability of healthy sport to
-                  healthy leadership.
-                </Typography>
+                <CardList
+                  items={activityList.data}
+                  title={activityList.title}
+                  md={2}
+                  xs={6}
+                  id="activityAll"
+                />
               </Grid>
             </Grid>
           </Grid>

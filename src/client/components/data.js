@@ -89,7 +89,7 @@ export const activityList = {
   data: [
     {
       Title: "休閒活動",
-      Descrption: "親子、手作、文化、自然",
+      Descrption: "親子、文化、自然",
       Image: "https://source.unsplash.com/featured/?family",
     },
     {
@@ -104,7 +104,7 @@ export const activityList = {
     },
     {
       Title: "休閒活動",
-      Descrption: "親子、手作、文化、自然",
+      Descrption: "親子、文化、自然",
       Image: "https://source.unsplash.com/featured/?family",
     },
     {
@@ -119,7 +119,7 @@ export const activityList = {
     },
     {
       Title: "休閒活動",
-      Descrption: "親子、手作、文化、自然",
+      Descrption: "親子、文化、自然",
       Image: "https://source.unsplash.com/featured/?family",
     },
     {
@@ -134,7 +134,7 @@ export const activityList = {
     },
     {
       Title: "休閒活動",
-      Descrption: "親子、手作、文化、自然",
+      Descrption: "親子、文化、自然",
       Image: "https://source.unsplash.com/featured/?family",
     },
     {

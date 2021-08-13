@@ -5,6 +5,7 @@ export const contentLayout = () => {
   const theme = useTheme();
   const downSm = useMediaQuery(theme.breakpoints.down("sm"));
   const padding = downSm ? 20 : 80;
+  const cardMaxWidth = downSm ? "30%" : "20%";
 
   const useStyles = makeStyles({
     root: {
@@ -28,7 +29,7 @@ export const contentLayout = () => {
     card: {
       marginBottom: 8,
       boxShadow: "8px 6px 10px grey",
-      minWidth: "0%",
+      minWidth: cardMaxWidth,
       minHeight: "0%",
     },
     bottomLine: {

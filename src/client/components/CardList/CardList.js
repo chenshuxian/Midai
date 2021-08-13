@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     marginTop: 20,
     marginBottom: 20,
     overflow: "auto",
-    flexWrap: "wrap",
   },
   Typo: {
     marginBottom: 10,
@@ -47,7 +46,9 @@ const useStyles = makeStyles({
 const CardList = (props) => {
   const classes = useStyles();
   //const linkCss = contentLayout()();
+  const xs = props.xs ? props.xs : 6;
   const md = props.md ? props.md : 4;
+  const wrap = props.wrap ? props.wrap : null;
 
   return (
     <Box id={props.id}>
@@ -57,8 +58,14 @@ const CardList = (props) => {
         </Typography>
       ) : null}
 
-      <Grid container className={classes.root} spacing={2} id={props.id}>
-        <ReCard items={props.items} md={md} onClick={props.onClick} />
+      <Grid
+        container
+        className={classes.root}
+        spacing={2}
+        id={props.id}
+        wrap={wrap}
+      >
+        <ReCard items={props.items} xs={xs} md={md} onClick={props.onClick} />
       </Grid>
     </Box>
   );

@@ -10,7 +10,7 @@ export const ReCard = (props) => {
   const linkCss = contentLayout()();
   return props.items.map((item, index) => {
     return (
-      <Grid key={index} item md={props.md}>
+      <Grid key={index} item xs={props.xs} md={props.md}>
         <Card className={linkCss.card}>
           <Link to="activity" className={linkCss.link} onClick={props.onClick}>
             <CardActionArea>
